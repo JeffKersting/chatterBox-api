@@ -6,8 +6,6 @@ module.exports = {
     client: 'pg',
     connection: {
       host: 'localhost',
-      user: 'jeff',
-      password: '',
       database: 'chatterbox'
     },
     migrations: {

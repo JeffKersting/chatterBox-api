@@ -48,3 +48,15 @@ app.post('/messages', async (req, res) => {
     res.status(500).json( { error } )
   }
 })
+
+app.post('/users', async (req, res) => {
+  try {
+    const user = await knex('users').insert({
+      user: req.body.user,
+      password: 'password'
+    }, 'user')
+    res.status(201).json( { user } )
+  } catch (error) {
+    res.status(500).json( { error } )
+  }
+})

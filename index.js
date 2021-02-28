@@ -1,23 +1,44 @@
 const express = require('express')
+const app = express();
 const knex = require('./db/knex.js')
 const cors = require('cors')
-const port = process.env.PORT || 3000
 const bodyParser = require('body-parser')
-
-
-const app = express();
+const port = process.env.PORT || 3000
+const httpServer = require('http').createServer()
 
 app.set('port', process.env.PORT || 3000)
 
-app.listen(app.get('port'), () => console.log(`Listening on port ${port}`))
+const server = app.listen(app.get('port'), () => console.log(`Listening on port ${port}`))
 
+const io = require('socket.io')(httpServer, {
+  cors: {
+    origin: '*',
+    allowHeaders: '*',
+    credentials: true
+  }
+})
 
+httpServer.listen(3002)
+
+app.use(function(req, res, next) {
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+  res.header('Access-Control-Allow-Headers', 'Content-Type');
+  next()
+})
+
+io.on('connection', (socket) => {
+  socket.on('message', (data) => {
+    if (data) {
+      io.sockets.emit('change', true)
+    }
+  })
+})
 
 app.use(express.json())
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended : true} ))
 app.use(cors())
-
 
 app.get('/users', async (req, res) => {
   try {

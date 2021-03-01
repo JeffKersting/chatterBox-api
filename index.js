@@ -7,17 +7,16 @@ const port = process.env.PORT || 3000
 const httpServer = require('http').Server(app)
 
 
-const server = httpServer.listen(app.get(port), () => console.log(`Listening on port ${port}`))
+const server = httpServer.listen((port), () => console.log(`Listening on port ${port}`))
 
 const io = require('socket.io')(httpServer, {
   cors: {
     origin: '*',
     allowHeaders: '*',
-    credentials: true
+    credentials: false,
+    methods: ['GET', 'POST']
   }
 })
-
-httpServer.listen(3002)
 
 app.use(function(req, res, next) {
   res.header('Access-Control-Allow-Origin', '*');

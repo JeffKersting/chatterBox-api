@@ -4,11 +4,10 @@ const knex = require('./db/knex.js')
 const cors = require('cors')
 const bodyParser = require('body-parser')
 const port = process.env.PORT || 3000
-const httpServer = require('http').createServer()
+const httpServer = require('http').Server(app)
 
-app.set('port', process.env.PORT || 3000)
 
-const server = app.listen(app.get('port'), () => console.log(`Listening on port ${port}`))
+const server = httpServer.listen(app.get(port), () => console.log(`Listening on port ${port}`))
 
 const io = require('socket.io')(httpServer, {
   cors: {

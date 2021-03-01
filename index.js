@@ -4,7 +4,7 @@ const knex = require('./db/knex.js')
 const cors = require('cors')
 const bodyParser = require('body-parser')
 const port = process.env.PORT || 3000
-const httpServer = require('http').Server(app)
+const httpServer = require('http').createServer()
 
 app.set('port', process.env.PORT || 3000)
 
@@ -18,7 +18,7 @@ const io = require('socket.io')(httpServer, {
   }
 })
 
-
+httpServer.listen(3002)
 
 app.use(function(req, res, next) {
   res.header('Access-Control-Allow-Origin', '*');

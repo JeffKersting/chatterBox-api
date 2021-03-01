@@ -24,5 +24,8 @@
   "bugs": {
     "url": "https://github.com/JeffKersting/chatterBox-api/issues"
   },
-  "homepage": "https://github.com/JeffKersting/chatterBox-api#readme"
+  "homepage": "https://github.com/JeffKersting/chatterBox-api#readme",
+  "engines": {
+    "node": "14.9.0"
+  }
 }

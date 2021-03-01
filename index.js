@@ -18,7 +18,7 @@ const io = require('socket.io')(httpServer, {
   }
 })
 
-httpServer.listen(3002)
+httpServer.listen(3000)
 
 app.use(function(req, res, next) {
   res.header('Access-Control-Allow-Origin', '*');

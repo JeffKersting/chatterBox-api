@@ -3,10 +3,10 @@ const app = express();
 const knex = require('./db/knex.js')
 const cors = require('cors')
 const bodyParser = require('body-parser')
-const port = process.env.PORT || 3000
+// const port = process.env.PORT || 3000
 const httpServer = require('http').createServer()
 
-app.set('port', process.env.PORT || 3000)
+// app.set('port', process.env.PORT || 3000)
 
 const server = app.listen(app.get('port'), () => console.log(`Listening on port ${port}`))
 

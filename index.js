@@ -40,7 +40,7 @@ app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended : true} ))
 app.use(cors())
 
-app.get('/users', async (req, res) => {
+app.get('/api/v1/users', async (req, res) => {
   try {
     const users = await knex('users').select()
     res.status(200).json(users)
@@ -49,7 +49,7 @@ app.get('/users', async (req, res) => {
   }
 })
 
-app.get('/messages', async (req, res) => {
+app.get('/api/v1/messages', async (req, res) => {
   try {
     const messages = await knex('messages').select()
     res.status(200).json(messages)

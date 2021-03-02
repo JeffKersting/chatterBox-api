@@ -4,12 +4,13 @@ const knex = require('./db/knex.js')
 const cors = require('cors')
 const bodyParser = require('body-parser')
 const port = process.env.PORT || 3000
-const httpServer = require('http').Server(app)
+const httpServer = require('http').createServer(app)
 
+app.set('port', port)
 
-const server = httpServer.listen((port), () => console.log(`Listening on port ${port}`))
+const server = app.listen(app.get('port'), () => console.log(`Listening on port ${port}`))
 
-const io = require('socket.io')(httpServer, {
+const io = require('socket.io')(server, {
   cors: {
     origin: '*',
     allowHeaders: '*',
@@ -38,7 +39,7 @@ app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended : true} ))
 app.use(cors())
 
-app.get('/api/v1/users', async (req, res) => {
+app.get('/users', async (req, res) => {
   try {
     const users = await knex('users').select()
     res.status(200).json(users)
@@ -47,7 +48,7 @@ app.get('/api/v1/users', async (req, res) => {
   }
 })
 
-app.get('/api/v1/messages', async (req, res) => {
+app.get('/messages', async (req, res) => {
   try {
     const messages = await knex('messages').select()
     res.status(200).json(messages)

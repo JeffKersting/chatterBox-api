@@ -20,6 +20,7 @@ CREATE DATABASE chatterbox;`
 
 ### 2. Clone this repository. 
 `cd chatterBox-api`
+
 `npm install`
 
 

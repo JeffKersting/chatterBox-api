@@ -1,28 +1,58 @@
+#ChatterBox API
+ChatterBox is an app that keeps you and your friends in touch. Login with your name and enter the room where you can send messages that are instantly updated on your screen every time a message is sent.
+
 
 ## SETUP
 
 ### Getting started with Postgres (skip this step if you already have postgres on your machine)
-<ul>Run the following commands in terminal
-  <li>`brew install postgresql`</li>
-  <li>`brew services start postgresql`</li>
-  <li>`psql postgres`</li>
-  <li>`CREATE ROLE <username>;`</li>
-  <li>`ALTER ROLE <username> CREATEDB`</li>
-  <li>`\q`</li>
-  <li>`psql -d postgres -U <username>`</li>
-  <li>`CREATE DATABASE <chatterbox>`</li>
+Run the following commands in terminal. 
+
+```SQL
+brew install postgresql
+brew services start postgresql
+psql postgres
+CREATE ROLE <username>
+ALTER ROLE <username> CREATEDB
+\q
+psql -d postgres -U <username>
+CREATE DATABASE chatterbox;`
+```
+
+### Clone this repository. 
+`cd chatterBox-api`
+`npm install`
+
+
+### Initializing the database. 
+Run the following commands in terminal. 
+```
+knex migrate:latest
+knex seed:run
+nodemon index
+```
+
+Now you should be ready to access the site on the frontend! Find the frontend repo [here](https://github.com/JeffKersting/chatterBox).
+
+## Technologies Used
+<ul>
+  <li>Express</li> 
+  <li>Postgres</li> 
+  <li>Knex</li> 
+  <li>Socket.io</li> 
+  <li>CORS</li> 
+  <li>Nodemon</li>   
 </ul>
 
-### Clone this repository and run `npm install` in terminal
+## Contributing
+<table>
+  <tr>
+    <td> Max Bregman <a href="https://github.com/Max9545">GH</td>
+    <td> Jeff Kersting <a href="https://github.com/JeffKersting">GH</td>
+  </tr>
+<td><img src="https://avatars.githubusercontent.com/u/67295227?s=460&u=ad5787c63676987806b88f2bf84a34b45a5a5e98&v=4" alt="Mr. Bregman"
+ width="150" height="auto" /></td>
+ <td><img src="https://avatars.githubusercontent.com/u/69732297?s=460&u=00030864e625ff24c4d8f902473b89e6f0c450ac&v=4" alt="Mr.Kersting"
+ width="150" height="auto" /></td>
+</table>
 
-CHECK WHETHER CLONED KNEX INIT FILES WORK ON OTHER MACHINES
-### Initializing the database
-<ul>Run the following commands in terminal
-  <li><`cd chatterBox-api`/li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-</ul>
+## License [MIT](https://choosealicense.com/licenses/mit/)

@@ -1,6 +1,7 @@
 # ChatterBox API. 
 ChatterBox is an app that keeps you and your friends in touch. Login with your name and enter the room where you can send messages that are instantly updated on your screen every time a message is sent.
 
+[Front-end repository](https://github.com/JeffKersting/chatterBox)
 
 ## SETUP
 

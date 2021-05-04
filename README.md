@@ -1,6 +1,8 @@
 # ChatterBox API. 
 ChatterBox is an app that keeps you and your friends in touch. Login with your name and enter the room where you can send messages that are instantly updated on your screen every time a message is sent.
 
+![CHAT IN USE](https://media.giphy.com/media/BoXYY0aLATz2pDcrqf/giphy.gif)
+
 [Front-end repository](https://github.com/JeffKersting/chatterBox)
 
 ## SETUP
@@ -19,13 +21,24 @@ psql -d postgres -U <username>
 CREATE DATABASE chatterbox;`
 ```
 
-### 2. Clone this repository. 
+### 2. Create the chatterbox database (Skip this step if you have completed step one)
+If postgres is not running, either start using the Postgres GUI (recommended), or run the following in terminal:
+```SQL
+  pg_ctl -D /usr/local/var/postgres start
+```
+Next, create the database
+```SQL
+  CREATE DATABASE chatterbox;
+```
+
+
+### 3. Clone this repository. 
 `cd chatterBox-api`
 
 `npm install`
 
 
-### 3. Initializing and run the database. 
+### 4. Initializing and run the database. 
 Run the following commands in terminal. 
 ```
 knex migrate:latest

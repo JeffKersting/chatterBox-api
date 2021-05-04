@@ -70,4 +70,7 @@ Now you should be ready to access the site on the frontend! Find the frontend re
  width="150" height="auto" /></td>
 </table>
 
+#### For additional information about this project, please refer to the front-end repository:
+[Front-end repository](https://github.com/JeffKersting/chatterBox)
+
 ## License [MIT](https://choosealicense.com/licenses/mit/)
